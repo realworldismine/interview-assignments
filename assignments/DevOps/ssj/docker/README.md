@@ -12,13 +12,17 @@
 ```
 jenkins ALL=(ALL)       NOPASSWD:ALL
 ```
+- Input a command
+```
+sudo chmod 666 /var/run/docker.sock
+```
 
 ### Jenkins Setting
 - Make a credential for github in the Credential menu
 - Check `Allow on Controller` and `Allow on Agents` in the Security menu
 - Make sure `Jenkins URL` in the System menu
 - Install plugins below (very important!!)
-  - Amazon EC2, Ant, Docker, Docker Compose Build Step, Email Extension, Github Integration, Gradle, JavaMail, LDAP, Matrix Authorization Strategy, Oracle JAVA SE Development Kit Installer, PAM Authentication, Pipeline, Pipeline Graph View, Pipeline: Github, Pipeline: Github Groovy Libraries, SSH Server, Timestamper, Workspace Cleanup
+  - Amazon EC2, Ant, Docker, Docker Compose Build Step, Docker Pipeline, Email Extension, Github Integration, Gradle, JavaMail, LDAP, Matrix Authorization Strategy, Oracle JAVA SE Development Kit Installer, PAM Authentication, Pipeline, Pipeline Graph View, Pipeline: Github, Pipeline: Github Groovy Libraries, SSH Server, Timestamper, Workspace Cleanup
 - Modify SMTP Email Environment Variables in the `Jenkinsfile`
 
 ## Implentation
@@ -97,7 +101,7 @@ jenkins ALL=(ALL)       NOPASSWD:ALL
 - Upon build completion, Dockerfiles are generated, and containers are created and started using Docker Compose
 - Postman is used to verify API calls after startup
 - Logs and alerts are checked
-- Dashboard visualization is verified using Grafana
+- Dashboard visualization is verified using Grafana 
 
 
 
